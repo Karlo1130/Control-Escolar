@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
@@ -80,7 +82,7 @@ public class MiVentana extends JFrame {
 		this.setTitle("Menu Principal");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-		this.getContentPane().setBackground(Color.decode("#008299"));
+		this.getContentPane().setBackground(Color.decode("#dce7ec"));
 		
 		
 	
@@ -104,7 +106,7 @@ public class MiVentana extends JFrame {
 			}
 		};
 		
-		timer.schedule(tarea, 2000);
+		timer.schedule(tarea, 3000);
 		
 	}
 
@@ -115,14 +117,14 @@ public class MiVentana extends JFrame {
 		bienvenida.setSize(300,120);
 		bienvenida.setLocation(100,180);
 		bienvenida.setLayout(null);
-		bienvenida.setBackground(Color.decode("#008299"));
+		bienvenida.setBackground(Color.decode("#dce7ec"));
 		
 		JLabel titleinicio = new JLabel("Bienvenido",JLabel.CENTER);
 		titleinicio.setFont(new Font("Comic Sans", Font.BOLD,20));
 		titleinicio.setSize(260, 40);
 		titleinicio.setLocation(20, 40);
 		titleinicio.setOpaque(true);
-		titleinicio.setBackground(Color.decode("#4e7485"));
+		titleinicio.setBackground(Color.decode("#1f7690"));
 		bienvenida.add(titleinicio);
 		
 		actual=bienvenida;
@@ -140,13 +142,14 @@ public class MiVentana extends JFrame {
 		miCuentaPanel.setSize(525,700);
 		miCuentaPanel.setLocation(0,0);
 		miCuentaPanel.setLayout(null);
-		miCuentaPanel.setBackground(Color.decode("#008299"));
+		miCuentaPanel.setBackground(Color.decode("#dce7ec"));
 		
 		JLabel editarPerfil = new JLabel();
 		editarPerfil.setText("Bienvenido "+ nombre);
+		editarPerfil.setFont(new Font("Comic Sans", Font.BOLD,20));
 		editarPerfil.setBounds(100, 10, 300, 80);
 		editarPerfil.setHorizontalAlignment(SwingConstants.CENTER);
-		editarPerfil.setForeground(Color.BLACK);
+		editarPerfil.setForeground(Color.decode("#1f7690"));
 		editarPerfil.setFont(new Font("cooper black",0,25));
 		
 		miCuentaPanel.add(editarPerfil);
@@ -156,34 +159,45 @@ public class MiVentana extends JFrame {
 		miCuentaPanel.add(iconoLista);
 
         JLabel nameLabel = new JLabel("Nombre:");
-        nameLabel.setBounds(70, 300, 100, 20);
+        nameLabel.setBounds(70, 270, 100, 20);
         JTextField nameField = new JTextField();
-        nameField.setBounds(200, 300, 200, 20);
+        nameField.setBounds(200, 270, 200, 20);
 
         JLabel apellidoLabel = new JLabel("Apellido:");
-        apellidoLabel.setBounds(70, 330, 100, 20);
+        apellidoLabel.setBounds(70, 300, 100, 20);
         JTextField apellidoField = new JTextField();
-        apellidoField.setBounds(200, 330, 200, 20);
+        apellidoField.setBounds(200, 300, 200, 20);
 
         JLabel emailLabel = new JLabel("Email:");
-        emailLabel.setBounds(70, 360, 100, 20);
+        emailLabel.setBounds(70, 330, 100, 20);
         JTextField emailField = new JTextField();
-        emailField.setBounds(200, 360, 200, 20);
-
-
-        JLabel passwordLabel = new JLabel("Contraseña:");
-
+        emailField.setBounds(200, 330, 200, 20);
         
 
+        JLabel NumTelefono = new JLabel("Numero telefonico:");
+        NumTelefono.setBounds(70, 360, 110, 20);
+        JTextField NumeroTelefono = new JTextField();
+        NumeroTelefono.setBounds(200, 360, 200, 20);
+        NumeroTelefono.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char character = e.getKeyChar();
+                if (!(Character.isDigit(character) ||
+                      (character == KeyEvent.VK_BACK_SPACE) ||
+                      (character == KeyEvent.VK_DELETE))) {
+                    e.consume();
+                }
+            }
+        });
+        
+        
+
+        JLabel passwordLabel = new JLabel("Contraseña:");
         passwordLabel.setBounds(70, 390, 100, 20);
         JPasswordField passwordField = new JPasswordField();
         passwordField.setBounds(200, 390, 200, 20);
 
 
         JLabel confirmPasswordLabel = new JLabel("Confirmar contraseña:");
-
-        
-
         confirmPasswordLabel.setBounds(70, 420, 150, 20);
         JPasswordField confirmPasswordField = new JPasswordField();
         confirmPasswordField.setBounds(200, 420, 150, 20);
@@ -200,6 +214,8 @@ public class MiVentana extends JFrame {
         miCuentaPanel.add(apellidoField);
         miCuentaPanel.add(emailLabel);
         miCuentaPanel.add(emailField);
+        miCuentaPanel.add(NumTelefono);
+        miCuentaPanel.add(NumeroTelefono);
         miCuentaPanel.add(passwordLabel);
         miCuentaPanel.add(passwordField);
         miCuentaPanel.add(confirmPasswordLabel);
@@ -232,14 +248,15 @@ public class MiVentana extends JFrame {
 		login.setSize(400,290);
 		login.setLocation(50,50);
 		login.setLayout(null);
-		login.setBackground(Color.decode("#008299"));
+		login.setBackground(Color.decode("#dce7ec"));
 		
 		JLabel titleinicio = new JLabel("Iniciar Sesion",JLabel.CENTER);
 		titleinicio.setFont(new Font("Comic Sans", Font.BOLD,20));
 		titleinicio.setSize(280, 40);
 		titleinicio.setLocation(60, 40);
 		titleinicio.setOpaque(true);
-		titleinicio.setBackground(Color.decode("#4e7485"));
+		titleinicio.setForeground(Color.decode("#ffffff"));
+		titleinicio.setBackground(Color.decode("#1f7690"));
 		login.add(titleinicio);
 		
 		JLabel usuario = new JLabel("Ingrese su usuario",JLabel.CENTER);
@@ -247,7 +264,8 @@ public class MiVentana extends JFrame {
 		usuario.setSize(250, 20);
 		usuario.setLocation(75, 95);
 		usuario.setOpaque(true);
-		usuario.setBackground(Color.GREEN);
+		usuario.setForeground(Color.decode("#ffffff"));
+		usuario.setBackground(Color.decode("#1f7690"));
 		login.add(usuario);
 		
 
@@ -257,7 +275,8 @@ public class MiVentana extends JFrame {
 		iniciarcontraseña.setSize(250, 30);
 		iniciarcontraseña.setLocation(75, 155);
 		iniciarcontraseña.setOpaque(true);
-		iniciarcontraseña.setBackground(Color.decode("#4e7485"));
+		iniciarcontraseña.setForeground(Color.decode("#ffffff"));
+		iniciarcontraseña.setBackground(Color.decode("#1f7690"));
 		login.add(iniciarcontraseña);
 
 		
@@ -296,15 +315,21 @@ public class MiVentana extends JFrame {
 					
 					FileReader file = new FileReader("users.txt");
 					reader = new BufferedReader(file);
-					
 					String line = reader.readLine();
+					
+					String[] data = null;
+					
 					
 					while(line != null) {
 						
-						String data [] = line.split(",");
+						data = line.split(",");
+						for (int i = 0; i < data.length; i++) {
+							
+							System.out.println(data[i]); 
+						}
 						 
 						if( user.equals(data[0]) ) {
-							if( pwd.equals(data[3]) ) {
+							if( pwd.equals(data[5]) ) {
 								flag = true;
 							}
 						} 
@@ -346,7 +371,7 @@ public class MiVentana extends JFrame {
 		registro.setSize(400,550);
 		registro.setLocation(50,50);
 		registro.setLayout(null);
-		registro.setBackground(Color.decode("#008299"));
+		registro.setBackground(Color.decode("#dce7ec"));
 		
 		JLabel editarPerfil = new JLabel();
 		editarPerfil.setText("Editar Perfil");
@@ -363,110 +388,136 @@ public class MiVentana extends JFrame {
 		
 		JLabel titleregistro = new JLabel("Registro de Nuevo Usuario",JLabel.CENTER);
 		titleregistro.setFont(new Font("Comic Sans", Font.BOLD,20));
+		titleregistro.setForeground(Color.decode("#ffffff"));
 		titleregistro.setSize(280, 40);
-		titleregistro.setLocation(60, 40);
+		titleregistro.setLocation(60,00);
 		titleregistro.setOpaque(true);
-		titleregistro.setBackground(Color.GREEN);
+		titleregistro.setBackground(Color.decode("#1f7690"));
 		registro.add(titleregistro);
 	
 		//Etiquetas
 		JLabel nombre = new JLabel("Ingrese sus nombres",JLabel.CENTER);
 		nombre.setFont(new Font("Comic Sans", Font.BOLD,16));
+		nombre.setForeground(Color.decode("#ffffff"));
 		nombre.setSize(250, 20);
-		nombre.setLocation(75, 95);
+		nombre.setLocation(75, 50);
 		nombre.setOpaque(true);
-		nombre.setBackground(Color.GREEN);
+		nombre.setBackground(Color.decode("#1f7690"));
 		registro.add(nombre);
 				
 		JLabel apellido = new JLabel("Apellidos",JLabel.CENTER);
 		apellido.setFont(new Font("Comic Sans", Font.BOLD,16));
+		apellido.setForeground(Color.decode("#ffffff"));
 		apellido.setSize(250, 20);
-		apellido.setLocation(75, 155);
+		apellido.setLocation(75, 105);
 		apellido.setOpaque(true);
-		apellido.setBackground(Color.GREEN);
+		apellido.setBackground(Color.decode("#1f7690"));
 		registro.add(apellido);
 				
 		JLabel fechaN = new JLabel("Fecha de nacimiento",JLabel.CENTER);
 		fechaN.setFont(new Font("Comic Sans", Font.BOLD,16));
+		fechaN.setForeground(Color.decode("#ffffff"));
 		fechaN.setSize(250, 20);
-		fechaN.setLocation(75, 220);
+		fechaN.setLocation(75, 160);
 		fechaN.setOpaque(true);
-		fechaN.setBackground(Color.GREEN);
+		fechaN.setBackground(Color.decode("#1f7690"));
 		registro.add(fechaN);
 		
 		
 		JLabel correoregistro = new JLabel("Ingrese su correo electronico",JLabel.CENTER);
 		correoregistro.setFont(new Font("Comic Sans", Font.BOLD,16));
+		correoregistro.setForeground(Color.decode("#ffffff"));
 		correoregistro.setSize(250, 30);
-		correoregistro.setLocation(75, 290);
+		correoregistro.setLocation(75, 215);
 		correoregistro.setOpaque(true);
-		correoregistro.setBackground(Color.GREEN);
+		correoregistro.setBackground(Color.decode("#1f7690"));
 		registro.add(correoregistro);
 		
 
-		JLabel registrocontraseña = new JLabel("Ingrese contraseña",JLabel.CENTER);
-		registrocontraseña.setFont(new Font("Comic Sans", Font.BOLD,16));
-		registrocontraseña.setSize(250, 30);
-		registrocontraseña.setLocation(75, 360);
-		registrocontraseña.setOpaque(true);
-		registrocontraseña.setBackground(Color.GREEN);
-		registro.add(registrocontraseña);
+		JLabel NumeroDeTelefono = new JLabel("Numero Telefonico",JLabel.CENTER);
+		NumeroDeTelefono.setFont(new Font("Comic Sans", Font.BOLD,16));
+		NumeroDeTelefono.setForeground(Color.decode("#ffffff"));
+		NumeroDeTelefono.setSize(250, 30);
+		NumeroDeTelefono.setLocation(75, 280);
+		NumeroDeTelefono.setOpaque(true);
+		NumeroDeTelefono.setBackground(Color.decode("#1f7690"));
+		registro.add(NumeroDeTelefono);
 		
-		JLabel repetircontrasena = new JLabel("Repetir contraseña",JLabel.CENTER);
-		repetircontrasena.setFont(new Font("Comic Sans", Font.BOLD,16));
-		repetircontrasena.setSize(250, 30);
-		repetircontrasena.setLocation(75, 430);
-		repetircontrasena.setOpaque(true);
-		repetircontrasena.setBackground(Color.GREEN);
-		registro.add(repetircontrasena);
+		JLabel contrasena = new JLabel("Ingrese una contraseña",JLabel.CENTER);
+		contrasena.setFont(new Font("Comic Sans", Font.BOLD,16));
+		contrasena.setForeground(Color.decode("#ffffff"));
+		contrasena.setSize(250, 30);
+		contrasena.setLocation(75, 345);
+		contrasena.setOpaque(true);
+		contrasena.setBackground(Color.decode("#1f7690"));
+		registro.add(contrasena);
 
 
 		//Campo Para Escribir
 		//Nombres
 		JTextField username = new JTextField();
 		username.setSize(250, 30);
-		username.setLocation(75, 120);
+		username.setLocation(75, 70);
 		registro.add(username);
 		
 		//Apellido
 		JTextField apellidos = new JTextField();
 		apellidos.setSize(250, 30);
-		apellidos.setLocation(75, 180);
+		apellidos.setLocation(75, 125);
 		registro.add(apellidos);
 		
 		
+		//Fecha de nacimiento
+		JTextField FechaN = new JTextField();
+		FechaN.setSize(250, 30);
+		FechaN.setLocation(75, 180);
+		registro.add(FechaN);
 		
 		
-		//Correo
-		JTextField correo = new JTextField();
-		correo.setSize(250, 30);
-		correo.setLocation(75, 255);
-		registro.add(correo);
+		//Correo electronico
+		JTextField Correo= new JTextField();
+		Correo.setSize(250, 30);
+		Correo.setLocation(75, 245);
+		registro.add(Correo);
+		
+		
+		//Numero de telefono
+		JTextField Num = new JTextField();
+		Num.setSize(250, 30);
+		Num.setLocation(75, 310);
+		registro.add(Num);
+		 Num.addKeyListener(new KeyAdapter() {
+	            public void keyTyped(KeyEvent e) {
+	                char character = e.getKeyChar();
+	                if (!(Character.isDigit(character) ||
+	                      (character == KeyEvent.VK_BACK_SPACE) ||
+	                      (character == KeyEvent.VK_DELETE))) {
+	                    e.consume();
+	                }
+	            }
+	        });
+		
 		
 		//contraseña
 		JPasswordField password = new JPasswordField();
 		password.setSize(250, 30);
-		password.setLocation(75, 325);
+		password.setLocation(75, 370);
 		registro.add(password);
-		
-		JPasswordField repetirpassword = new JPasswordField();
-		repetirpassword.setSize(250, 30);
-		repetirpassword.setLocation(75, 395);
-		registro.add(repetirpassword);
 		
 		JLabel tyc = new JLabel("Terminos y condiciones",JLabel.CENTER);
 		tyc.setFont(new Font("Comic Sans", Font.BOLD,16));
+		tyc.setForeground(Color.decode("#ffffff"));
 		tyc.setSize(250, 40);
-		tyc.setLocation(75, 430);
+		tyc.setLocation(75, 410);
 		tyc.setOpaque(true);
-		tyc.setBackground(Color.GREEN);
+		tyc.setBackground(Color.decode("#1f7690"));
 		registro.add(tyc);
 		
 		JRadioButton acepto = new JRadioButton("Acepto");
 		acepto.setSize(100, 20);
-		acepto.setLocation(95, 475);
+		acepto.setLocation(75, 460);
 		acepto.setOpaque(true);
-		acepto.setBackground(Color.cyan);
+		acepto.setBackground(Color.decode("#1f7690"));
 		registro.add(acepto);
 		
 		ButtonGroup bg = new ButtonGroup();
@@ -475,26 +526,31 @@ public class MiVentana extends JFrame {
 		JButton finalregistro = new JButton();
 		finalregistro.setText("Aceptar");
 		finalregistro.setSize(100, 40);
-		finalregistro.setLocation(150, 500);
+		finalregistro.setLocation(150, 495);
 		finalregistro.setOpaque(true);
 		finalregistro.setBackground(Color.white);
+		
+		finalregistro.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
+			}
+			
+		});
+		
 		registro.add(finalregistro);
 		
 		JButton cancelar = new JButton();
 		cancelar.setText("Cancelar");
 		cancelar.setSize(90, 20);
-		cancelar.setLocation(300, 515);
+		cancelar.setLocation(300, 510);
 		cancelar.setOpaque(true);
 		cancelar.setBackground(Color.white);
 		registro.add(cancelar);
 		
-		
-					
-							
-			
-		
-		
-		
+	
 		anterior=actual;
 		actual=registro;
 		remove(anterior);
@@ -510,16 +566,18 @@ public class MiVentana extends JFrame {
 	        listaUsuarios.setSize(525,700);
 	        listaUsuarios.setLocation(0,0);
 	        listaUsuarios.setLayout(null);
-	        listaUsuarios.setBackground(Color.decode("#008299"));
+	        listaUsuarios.setBackground(Color.decode("#dce7ec"));
 	        
 
 	        JLabel listausuario= new JLabel("Lista de usuarios");
    		 listausuario.setFont(new Font("Comic Sans", Font.BOLD,30));
+   		 listausuario.setForeground(Color.decode("#1f7690"));
    		 listausuario.setBounds(130, 10, 300, 50);
-   		listaUsuarios.add(listausuario);
+   		 listaUsuarios.add(listausuario);
    		
    		 JLabel editar = new JLabel("Editar");
    	     editar.setFont(new Font("Comic Sans", Font.BOLD,20));
+   	     editar.setForeground(Color.decode("#1f7690"));
    	     editar.setBounds(10, 30, 450, 100);
    	     listaUsuarios.add(editar);
    	     
@@ -544,7 +602,7 @@ public class MiVentana extends JFrame {
 		perfil.setSize(525,700);
 		perfil.setLocation(0,0);
 		perfil.setLayout(null);
-		perfil.setBackground(Color.decode("#008299"));
+		perfil.setBackground(Color.decode("#dce7ec"));
 		
 		JMenu cuentaMenu = new JMenu("Cuenta");
 		JMenuItem miCuentaMenuItem = new JMenuItem("Editar");
@@ -696,5 +754,119 @@ public class MiVentana extends JFrame {
 
 		  }
 	  }
+	
+	public void eliminarUsuario(int numUsuarioEliminar) {
+
+		String archivo = "users.txt";
+
+		int numeroUsuario = 0;
+
+		try {
+			File archivoTemporal = new File("archivoTemporal");
+			BufferedWriter writer = new BufferedWriter(new FileWriter(archivoTemporal));
+
+			BufferedReader reader = new BufferedReader(new FileReader(archivo));
+			String line = reader.readLine();
+
+			//copia los datos en un nuevo archivo menos el del usuario especificado
+			while (line != null) {
+
+				if (numeroUsuario != numUsuarioEliminar) {
+					writer.write(line);
+					writer.newLine();
+				}
+
+				line = reader.readLine();
+				numeroUsuario++;
+			}
+
+			reader.close();
+			writer.close();
+
+			File borrador = new File(archivo);
+			borrador.delete();
+
+			archivoTemporal.renameTo(borrador);
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		//crearTabla();
+	}
+	
+	public void CrearUsuario(JTextField nombreText, JTextField apellidosText, 
+			JTextField FechaN, JTextField correo, JTextField numT, JPasswordField contraseñaText) {
+		
+//		CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
+
+		
+		//String password = new String(contraseñaText.getPassword());
+		String password = new String(contraseñaText.getPassword());
+		String datosUsuario = "";
+
+		boolean match = false;
+		
+		if(password.length() != 0
+				&& nombreText.getText().length() != 0
+				&& apellidosText.getText().length() != 0
+				&& FechaN.getText().length() != 0
+				&& correo.getText().length() != 0) {
+			
+			try {
+				FileWriter writer = new FileWriter("users.txt", true);
+
+				BufferedWriter buffWriter = new BufferedWriter(writer);
+				
+				datosUsuario = nombreText.getText()+","
+						+apellidosText.getText()+","
+						+correo.getText()+","
+						+FechaN.getText()+","
+						+numT.getText()+","
+						+password;
+				
+				BufferedReader reader = new BufferedReader(new FileReader("users.txt"));
+				String line = reader.readLine();
+				
+				String[] lineArray = null;
+				
+				while (line != null) {
+					lineArray = line.split(",");
+
+					if(FechaN.getText().equals(lineArray[3])) {
+						match = true;
+					}
+				
+					line = reader.readLine();
+				}
+				reader.close();
+				
+				if(true) {
+					buffWriter.write(datosUsuario);
+					buffWriter.newLine();
+					buffWriter.close();
+					JOptionPane.showMessageDialog(this, "Cuenta creada con exito", "Listo!", JOptionPane.INFORMATION_MESSAGE);
+
+					/*
+					 * logica de el cambio de ventanas
+					 */
+					
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(this, "Error al registrar", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		else {
+			
+			JOptionPane.showMessageDialog(this, "Error al registrar", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
+	}
 	
 }
