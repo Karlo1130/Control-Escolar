@@ -1,4 +1,4 @@
-Ricardo,Ortega,15/5/2003,Rick_21@alu.uabcs.mx,6124754512,12345,material-escolar (1).png
+Ricardo,Ortega,15/5/2003,Rick_21@alu.uabcs.mx,6124754512,12345,universidad,material-escolar (1).png
 Ricardo,Ortega,15/5/2003,Rick_21@uabcs.mx,6124754512,12345,universidad,material-escolar (1).png
 Ricardo,Ortega,15/5/2003,Rick_22@uabcs.mx,6124754512,12345,universidad,material-escolar (1).png
 Ricardo,Ortega,15/5/2003,Rick_23@uabcs.mx,6124754512,12345,universidad,material-escolar (1).png

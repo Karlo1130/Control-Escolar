@@ -62,7 +62,7 @@ public class MiVentana extends JFrame {
 	JPanel accesoPermitido;
     JPanel listaUsuarios;
     
-	String nombre, imagen;
+	String nombre, imagen="material-escolar(1).PNG";
 	
 	DefaultTableModel tableModel;
 	
@@ -81,7 +81,7 @@ public class MiVentana extends JFrame {
 
 	private DefaultTableModel modelo;
 
-
+    private JLabel imageLabel;
 	
 	public MiVentana() {
 		this.setVisible(true);
@@ -731,8 +731,6 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		
 		JButton colocarImagen = new JButton();
 		colocarImagen.setText("Colocar Imagen");
-		colocarImagen.setSize(130, 40);
-		colocarImagen.setLocation(160, 495);
 		colocarImagen.setOpaque(true);
 		colocarImagen.setBackground(Color.white);
 		registro.add(colocarImagen);
@@ -749,7 +747,10 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		        if (returnVal == JFileChooser.APPROVE_OPTION) {
 		            System.out.println("Has seleccionado el archivo: " +
 		                chooser.getSelectedFile().getName());
+		            imagen = chooser.getSelectedFile().getAbsolutePath();
 		            // Cargar la imagen y mostrarla en un componente Swing aquí
+
+
 		        }
 		    }
 			
@@ -770,6 +771,9 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		//BOTON ACEPTAR
 		finalregistro.setSize(100, 40);
 		finalregistro.setLocation(50, 550);
+		//BOTON AGREGAR IMAGEN
+		colocarImagen.setSize(130, 40);
+		colocarImagen.setLocation(160, 550);
 		//ETIQUETA
 		JLabel gradoDocente = new JLabel("Ingrese su grado de estudio",JLabel.CENTER);
 		gradoDocente.setFont(new Font("Comic Sans", Font.BOLD,16));
@@ -805,6 +809,9 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 			//BOTON ACEPTO
 			acepto.setSize(100, 20);
 			acepto.setLocation(75, 460);
+			//BOTON AGREGAR IMAGEN
+			colocarImagen.setSize(130, 40);
+			colocarImagen.setLocation(160, 495);
 			//TERMINOS Y CONDICIONES
 			tyc.setSize(250, 40);
 			tyc.setLocation(75, 410);
@@ -1204,7 +1211,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 						+correo.getText()+","
 						+numT.getText()+","
 						+password+","
-						+gradoEstudio.getText()
+						+gradoEstudio.getText()+","
 						+imagen;
 
 				BufferedReader reader = new BufferedReader(new FileReader("users.txt"));
@@ -1275,7 +1282,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 						+correo.getText()+","
 						+FechaN.getText()+","
 						+numT.getText()+","
-						+password
+						+password+","
 						+imagen;
 
 				BufferedReader reader = new BufferedReader(new FileReader("users.txt"));
