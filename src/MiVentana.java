@@ -1037,6 +1037,9 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 			
 		});
 		
+		JLabel fondo = new JLabel(new ImageIcon("fondo.PNG"));//COMENTARIO DE CAMPA: AÑADI UNA IMAGEN DE FONDO
+		fondo.setBounds(-2, 1, 525, 700);//ANCHO X, Y,TAMAÑO EC0307 008299
+		perfil.add(fondo);
 
 		anterior=actual;
 		actual=perfil;
