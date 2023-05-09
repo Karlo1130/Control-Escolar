@@ -1,0 +1,7 @@
+Ricardo,Ortega,15/5/2003,Rick_21@alu.uabcs.mx,6124754512,12345
+Ricardo,Ortega,15/5/2003,Rick_21@uabcs.mx,6124754512,12345
+Ricardo,Ortega,15/5/2003,Rick_22@uabcs.mx,6124754512,12345
+Ricardo,Ortega,15/5/2003,Rick_23@uabcs.mx,6124754512,12345
+Ricardo,Ortega,15/5/2003,Rick_24@uabcs.mx,6124754512,12345
+Ricardo,Ortega,15/5/2003,Rick_25@uabcs.mx,6124754512,12345
+carlos,campa,campa@uabcs.mx,28/06/2002,6121837046,12345,licenciatura
