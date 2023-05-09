@@ -122,18 +122,24 @@ public class MiVentana extends JFrame {
 	public void Bienvenida() {//Panel bienvenida realizado por Garayzar Ricardo
 
 		bienvenida = new JPanel();
-		bienvenida.setSize(300,120);
-		bienvenida.setLocation(100,180);
+		bienvenida.setSize(525, 700);//COMENTARIO DE CAMPA: MODIFIQUE EL TAMAÑO Y LA UBICACION 
+		bienvenida.setLocation(0,0);
 		bienvenida.setLayout(null);
         bienvenida.setBackground(Color.decode("#dce7ec"));
 		
 		JLabel titleinicio = new JLabel("Bienvenido",JLabel.CENTER);
-		titleinicio.setFont(new Font("Comic Sans", Font.BOLD,20));
+		titleinicio.setFont(new Font("Comic Sans", Font.BOLD,30));
 		titleinicio.setSize(260, 40);
-		titleinicio.setLocation(20, 40);
-		titleinicio.setOpaque(true);
+		titleinicio.setLocation(130, 200);
+		titleinicio.setOpaque(false);
 		titleinicio.setBackground(Color.decode("#1f7690"));
 		bienvenida.add(titleinicio);
+		
+		JLabel fondo = new JLabel(new ImageIcon("fondo.PNG"));//COMENTARIO DE CAMPA: AÑADI UNA IMAGEN DE FONDO
+		fondo.setBounds(-2, 1, 525, 700);//ANCHO X, Y,TAMAÑO EC0307 008299
+		bienvenida.add(fondo);
+	
+		
 		
 		actual=bienvenida;
 		
@@ -230,6 +236,10 @@ public class MiVentana extends JFrame {
         miCuentaPanel.add(cancelButton);
         miCuentaPanel.add(updateButton);
 
+		JLabel fondo = new JLabel(new ImageIcon("fondo2.PNG"));//COMENTARIO DE CAMPA: AÑADI UNA IMAGEN DE FONDO
+		fondo.setBounds(-2, 1, 525, 700);//ANCHO X, Y,TAMAÑO EC0307 008299
+		miCuentaPanel.add(fondo);
+        
         cancelButton.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
@@ -262,27 +272,27 @@ public class MiVentana extends JFrame {
 	
 	public void Login () {//panel Login realizado por Garayzar Ricardo
 		login = new JPanel();
-		login.setSize(400,290);
-		login.setLocation(50,50);
+		login.setSize(525, 700);//COMENTARIO DE CAMPA: MODIFIQUE EL TAMAÑO Y LA UBICACION DEL PANEL
+		login.setLocation(0,0);
 		login.setLayout(null);
         login.setBackground(Color.decode("#dce7ec"));
 		
-		JLabel titleinicio = new JLabel("Iniciar Sesion",JLabel.CENTER);
+		JLabel titleinicio = new JLabel("Iniciar Sesion",JLabel.CENTER);//COMENTARIO DE CAMPA: MODIFIQUE LAS POSICIONES
 		titleinicio.setFont(new Font("Comic Sans", Font.BOLD,20));
 		titleinicio.setSize(280, 40);
-		titleinicio.setLocation(60, 40);
-		titleinicio.setOpaque(true);
-		titleinicio.setForeground(Color.decode("#ffffff"));
-		titleinicio.setBackground(Color.decode("#1f7690"));
+		titleinicio.setLocation(125, 40);//60
+		titleinicio.setOpaque(false);
+		titleinicio.setForeground(Color.decode("#27374F"));
+		titleinicio.setBackground(Color.decode("#608AC5"));
 		login.add(titleinicio);
 		
 		JLabel usuario = new JLabel("Ingrese su usuario",JLabel.CENTER);
 		usuario.setFont(new Font("Comic Sans", Font.BOLD,16));
 		usuario.setSize(250, 20);
-		usuario.setLocation(75, 95);
+		usuario.setLocation(140, 95);//75
 		usuario.setOpaque(true);
-		usuario.setForeground(Color.decode("#ffffff"));
-		usuario.setBackground(Color.decode("#1f7690"));
+		usuario.setForeground(Color.decode("#27374F"));
+		usuario.setBackground(Color.decode("#5C87C0"));
 		login.add(usuario);
 		
 
@@ -290,10 +300,10 @@ public class MiVentana extends JFrame {
 		JLabel iniciarcontraseña = new JLabel("Contraseña",JLabel.CENTER);
 		iniciarcontraseña.setFont(new Font("Comic Sans", Font.BOLD,16));
 		iniciarcontraseña.setSize(250, 30);
-		iniciarcontraseña.setLocation(75, 155);
+		iniciarcontraseña.setLocation(140, 155);
 		iniciarcontraseña.setOpaque(true);
-		iniciarcontraseña.setForeground(Color.decode("#ffffff"));
-		iniciarcontraseña.setBackground(Color.decode("#1f7690"));
+		iniciarcontraseña.setForeground(Color.decode("#27374F"));
+		iniciarcontraseña.setBackground(Color.decode("#5C87C0"));
 		login.add(iniciarcontraseña);
 
 		
@@ -302,27 +312,27 @@ public class MiVentana extends JFrame {
 		JButton entrarcuentar = new JButton();
 		entrarcuentar.setText("Aceptar");
 		entrarcuentar.setSize(100, 40);
-		entrarcuentar.setLocation(75, 225);
-		entrarcuentar.setOpaque(true);
+		entrarcuentar.setLocation(140, 225);
+		entrarcuentar.setOpaque(false);
 		entrarcuentar.setBackground(Color.white);
 		login.add(entrarcuentar);
 		
 		JButton salir = new JButton();
 		salir.setText("Salir");
 		salir.setSize(100, 40);
-		salir.setLocation(225, 225);
-		salir.setOpaque(true);
+		salir.setLocation(290, 225);//225
+		salir.setOpaque(false);
 		salir.setBackground(Color.white);
 		login.add(salir);
 		
 		JTextField username = new JTextField("Rick_21@alu.uabcs.mx");
 		username.setSize(250, 30);
-		username.setLocation(75, 120);
+		username.setLocation(140, 120);
 		login.add(username);
 		
 		JPasswordField password = new JPasswordField("12345");
 		password.setSize(250, 30);
-		password.setLocation(75, 190);
+		password.setLocation(140, 190);
 		login.add(password);
 
 		salir.addActionListener(new ActionListener() {
@@ -360,7 +370,7 @@ public class MiVentana extends JFrame {
 					
 					if(estudiante==true)//CAMPA
 					{
-						if(user.contains("@alu.uabcs.mx") && !user.contains("@uabcs.mx") ) {//CAMPA
+						if(user.contains("@alu.uabcs.mx") && !user.contains("@uabcs.mx") ) {//COMENTARIO DE CAMPA: AÑADÍ FILTROS PARA LOS CORREOS DE ESTUDIANTES O DOCENTES
 							while(line != null) {//CAMPA Y KARLO  
 								
 									
@@ -435,6 +445,19 @@ public class MiVentana extends JFrame {
 			
 		});
 		
+		JLabel btn3 = new JLabel(new ImageIcon("boton.PNG"));
+		btn3.setBounds(140, 225, 100, 40);
+		login.add(btn3);
+		
+		JLabel btn4 = new JLabel(new ImageIcon("boton.PNG"));
+		btn4.setBounds(290, 225, 100, 40);
+		login.add(btn4);
+		
+		JLabel fondo = new JLabel(new ImageIcon("fondo.PNG"));//COMENTARIO DE CAMPA: AÑADI FONDO
+		fondo.setBounds(-2, 1, 525, 700);
+		login.add(fondo); 
+	
+		
 		anterior=actual;
 		actual=login;
 		remove(anterior);
@@ -446,35 +469,34 @@ public class MiVentana extends JFrame {
 	
 	public void filtroUsuarios () {//CAMPA
 		filtroUsuarios = new JPanel();
-		filtroUsuarios.setSize(400,290);
-		filtroUsuarios.setLocation(50,50);
+		filtroUsuarios.setSize(525, 700);
+		filtroUsuarios.setLocation(0,0);
 		filtroUsuarios.setLayout(null);
 		filtroUsuarios.setBackground(Color.decode("#008299"));
 		
 		JLabel titleinicio = new JLabel("Elija el tipo de Usuario",JLabel.CENTER);
 		titleinicio.setFont(new Font("Comic Sans", Font.BOLD,20));
 		titleinicio.setSize(280, 40);
-		titleinicio.setLocation(60, 40);
-		titleinicio.setOpaque(true);
+		titleinicio.setLocation(125,100);
+		titleinicio.setOpaque(false);
 		titleinicio.setBackground(Color.decode("#4e7485"));
 		filtroUsuarios.add(titleinicio);
 		
 		JButton estudi = new JButton();
 		estudi.setText("Estudiante");
 		estudi.setSize(100, 40);
-		estudi.setLocation(75, 225);
-		estudi.setOpaque(true);
+		estudi.setLocation(100, 225);
+		estudi.setOpaque(false);
 		estudi.setBackground(Color.white);
 		filtroUsuarios.add(estudi);
 		
 		JButton docent = new JButton();
 		docent.setText("Docente");
 		docent.setSize(100, 40);
-		docent.setLocation(225, 225);
-		docent.setOpaque(true);
+		docent.setLocation(320, 225);
+		docent.setOpaque(false);
 		docent.setBackground(Color.white);
 		filtroUsuarios.add(docent);
-		
 		docent.addActionListener(new ActionListener() {
 			@Override
 			
@@ -498,6 +520,18 @@ public class MiVentana extends JFrame {
 			
 		});
 	
+		JLabel btn1 = new JLabel(new ImageIcon("boton.PNG"));
+		btn1.setBounds(100, 225, 100, 40);
+		filtroUsuarios.add(btn1);
+		
+		JLabel btn2 = new JLabel(new ImageIcon("boton.PNG"));
+		btn2.setBounds(320, 225, 100, 40);
+		filtroUsuarios.add(btn2);
+		
+		JLabel fondo = new JLabel(new ImageIcon("fondo.PNG"));
+		fondo.setBounds(-2, 1, 525, 700);
+		filtroUsuarios.add(fondo);
+		
 		anterior=actual;
 		actual=filtroUsuarios;
 		remove(anterior);
