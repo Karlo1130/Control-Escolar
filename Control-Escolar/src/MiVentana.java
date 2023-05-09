@@ -1033,8 +1033,8 @@ public class MiVentana extends JFrame {
 
 				datosUsuario = nombreText.getText()+","
 						+apellidosText.getText()+","
-						+correo.getText()+","
 						+FechaN.getText()+","
+						+correo.getText()+","
 						+numT.getText()+","
 						+password+","
 						+gradoEstudio.getText();
@@ -1103,8 +1103,8 @@ public class MiVentana extends JFrame {
 
 				datosUsuario = nombreText.getText()+","
 						+apellidosText.getText()+","
-						+correo.getText()+","
 						+FechaN.getText()+","
+						+correo.getText()+","
 						+numT.getText()+","
 						+password;
 
