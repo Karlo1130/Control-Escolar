@@ -545,8 +545,8 @@ public class MiVentana extends JFrame {
 public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar Ricardo
 		
 		registro = new JPanel();
-		registro.setSize(400,600);
-		registro.setLocation(50,10);
+		registro.setSize(525, 700);
+		registro.setLocation(0,0);
 		registro.setLayout(null);
 		registro.setBackground(Color.decode("#dce7ec"));
 		
@@ -703,7 +703,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		JButton finalregistro = new JButton();
 		finalregistro.setText("Aceptar");
 		finalregistro.setSize(100, 40);
-		finalregistro.setLocation(150, 550);
+		finalregistro.setLocation(100, 550);
 		finalregistro.setOpaque(true);
 		finalregistro.setBackground(Color.white);
 		registro.add(finalregistro);
@@ -711,11 +711,28 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		JButton cancelar = new JButton();
 		cancelar.setText("Cancelar");
 		cancelar.setSize(90, 20);
-		cancelar.setLocation(300, 510);
+		cancelar.setLocation(300, 570);
 		cancelar.setOpaque(true);
 		cancelar.setBackground(Color.white);
 		registro.add(cancelar);
-		//--------------------------------------------------------------------
+		//--------------------------------------------------------------------CAMPA
+		
+		JButton colocarImagen = new JButton();
+		colocarImagen.setText("Colocar Imagen");
+		colocarImagen.setSize(130, 40);
+		colocarImagen.setLocation(160, 495);
+		colocarImagen.setOpaque(true);
+		colocarImagen.setBackground(Color.white);
+		registro.add(colocarImagen);
+		
+		colocarImagen.addActionListener(new ActionListener() {//MENSAJE CAMPA: LE PUSE FUNCIONALIDAD AL BOTÓN CANCELAR
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			
+			}
+			
+		});
 	if(docente) {//CAMPA
 		//PANEL
 		registro.setSize(400,600);
@@ -731,7 +748,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		tyc.setLocation(75, 470);
 		//BOTON ACEPTAR
 		finalregistro.setSize(100, 40);
-		finalregistro.setLocation(150, 550);
+		finalregistro.setLocation(50, 550);
 		//ETIQUETA
 		JLabel gradoDocente = new JLabel("Ingrese su grado de estudio",JLabel.CENTER);
 		gradoDocente.setFont(new Font("Comic Sans", Font.BOLD,16));
@@ -772,7 +789,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 			tyc.setLocation(75, 410);
 			//BOTON ACEPTAR
 			finalregistro.setSize(100, 40);
-			finalregistro.setLocation(150, 495);
+			finalregistro.setLocation(50, 495);
 			finalregistro.addActionListener(new ActionListener() {
 
 				@Override
@@ -798,7 +815,14 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 			
 		});
 		
+
+		
 		//--------------------------------------------------------------------
+		
+		JLabel fondo = new JLabel(new ImageIcon("fondo.PNG"));//COMENTARIO DE CAMPA: AÑADI UNA IMAGEN DE FONDO
+		fondo.setBounds(-2, 1, 525, 700);//ANCHO X, Y,TAMAÑO EC0307 008299
+		registro.add(fondo);
+
 		anterior=actual;
 		actual=registro;
 		remove(anterior);
