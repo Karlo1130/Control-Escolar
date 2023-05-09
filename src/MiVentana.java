@@ -49,7 +49,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.JFileChooser;
-
+import javax.swing.filechooser.FileNameExtensionFilter;
 public class MiVentana extends JFrame {
 	JPanel actual=null;
 	JPanel anterior=null;
@@ -62,7 +62,7 @@ public class MiVentana extends JFrame {
 	JPanel accesoPermitido;
     JPanel listaUsuarios;
     
-	String nombre;
+	String nombre, imagen;
 	
 	DefaultTableModel tableModel;
 	
@@ -540,7 +540,19 @@ public class MiVentana extends JFrame {
 		repaint();
 		revalidate();
 }	
-
+	public String buscarImagen() {
+		JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "Archivos de imagen", "jpg", "jpeg", "png", "gif");
+        fileChooser.setFileFilter(filter);
+        int seleccion = fileChooser.showOpenDialog(null);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+        	
+            File selectedFile = fileChooser.getSelectedFile();
+            return selectedFile.getAbsolutePath();
+        }
+        return null;
+	}
 
 public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar Ricardo
 		
@@ -728,9 +740,18 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		colocarImagen.addActionListener(new ActionListener() {//MENSAJE CAMPA: LE PUSE FUNCIONALIDAD AL BOTÓN CANCELAR
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-			
-			}
+		    public void actionPerformed(ActionEvent e) {
+		        JFileChooser chooser = new JFileChooser();
+		        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+		            "Archivos de imagen", "jpg", "png", "gif");
+		        chooser.setFileFilter(filter);
+		        int returnVal = chooser.showOpenDialog(null);
+		        if (returnVal == JFileChooser.APPROVE_OPTION) {
+		            System.out.println("Has seleccionado el archivo: " +
+		                chooser.getSelectedFile().getName());
+		            // Cargar la imagen y mostrarla en un componente Swing aquí
+		        }
+		    }
 			
 		});
 	if(docente) {//CAMPA
@@ -769,7 +790,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					CrearUsuarioDocente(username, apellidos, FechaN, Correo, Num, password, gradoEstudio);
+					CrearUsuarioDocente(username, apellidos, FechaN, Correo, Num, password, gradoEstudio, imagen);
 				}
 				
 			});
@@ -795,7 +816,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
+					CrearUsuario(username, apellidos, FechaN, Correo, Num, password, imagen);
 				}
 				
 			});
@@ -1153,7 +1174,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 	}
 
 	public void CrearUsuarioDocente(JTextField nombreText, JTextField apellidosText, //CAMPA
-			JTextField FechaN, JTextField correo, JTextField numT, JPasswordField contraseñaText ,JTextField  gradoEstudio) {
+			JTextField FechaN, JTextField correo, JTextField numT, JPasswordField contraseñaText ,JTextField  gradoEstudio, String imagen) {
 
 //		CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
 
@@ -1183,7 +1204,8 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 						+correo.getText()+","
 						+numT.getText()+","
 						+password+","
-						+gradoEstudio.getText();
+						+gradoEstudio.getText()
+						+imagen;
 
 				BufferedReader reader = new BufferedReader(new FileReader("users.txt"));
 				String line = reader.readLine();
@@ -1226,7 +1248,7 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 	}
 	
 	public void CrearUsuario(JTextField nombreText, JTextField apellidosText, 
-			JTextField FechaN, JTextField correo, JTextField numT, JPasswordField contraseñaText) {
+			JTextField FechaN, JTextField correo, JTextField numT, JPasswordField contraseñaText, String imagen) {
 
 //		CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
 
@@ -1253,7 +1275,8 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 						+correo.getText()+","
 						+FechaN.getText()+","
 						+numT.getText()+","
-						+password;
+						+password
+						+imagen;
 
 				BufferedReader reader = new BufferedReader(new FileReader("users.txt"));
 				String line = reader.readLine();
@@ -1381,7 +1404,6 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 		}
 
 	}
-
 	public String[] getDatosUsuario(int numUsuario) {
 		
 		String[] datos = null;
