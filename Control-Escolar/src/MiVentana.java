@@ -668,17 +668,32 @@ public class MiVentana extends JFrame {
 		finalregistro.setLocation(150, 550);
 		finalregistro.setOpaque(true);
 		finalregistro.setBackground(Color.white);
-		finalregistro.addActionListener(new ActionListener() {
+		registro.add(finalregistro);
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
-			}
-
-		});
-
-		
+		JButton cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setSize(90, 20);
+		cancelar.setLocation(300, 510);
+		cancelar.setOpaque(true);
+		cancelar.setBackground(Color.white);
+		registro.add(cancelar);
+		//--------------------------------------------------------------------
+	if(docente) {//CAMPA
+		//PANEL
+		registro.setSize(400,600);
+		registro.setLocation(50,10);//(50,50)MENSAJE DE CAMPA: MODIFIQUE LA ALTURA DEL PANEL PARA AÑADIR UNA OPCION ALTERANATIVA
+		//BOTON CANCELAR
+		cancelar.setSize(90, 20);
+		cancelar.setLocation(300, 570);
+		//BOTON ACEPTO
+		acepto.setSize(100, 20);
+		acepto.setLocation(75, 520);
+		//TERMINOS Y CONDICIONES
+		tyc.setSize(250, 40);
+		tyc.setLocation(75, 470);
+		//BOTON ACEPTAR
+		finalregistro.setSize(100, 40);
+		finalregistro.setLocation(150, 550);
 		//ETIQUETA
 		JLabel gradoDocente = new JLabel("Ingrese su grado de estudio",JLabel.CENTER);
 		gradoDocente.setFont(new Font("Comic Sans", Font.BOLD,16));
@@ -693,27 +708,59 @@ public class MiVentana extends JFrame {
 		gradoEstudio.setSize(250, 30);
 		gradoEstudio.setLocation(75, 425);
 		registro.add(gradoEstudio);
-		finalregistro.addActionListener(new ActionListener() {
+			
+			finalregistro.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					CrearUsuarioDocente(username, apellidos, FechaN, Correo, Num, password, gradoEstudio);
+				}
+				
+			});
+			}
+		else {
+			//PANEL
+			registro.setSize(400,550);
+			registro.setLocation(50,50);
+			//BOTON CANCELAR
+			cancelar.setSize(90, 20);
+			cancelar.setLocation(300, 510);
+			//BOTON ACEPTO
+			acepto.setSize(100, 20);
+			acepto.setLocation(75, 460);
+			//TERMINOS Y CONDICIONES
+			tyc.setSize(250, 40);
+			tyc.setLocation(75, 410);
+			//BOTON ACEPTAR
+			finalregistro.setSize(100, 40);
+			finalregistro.setLocation(150, 495);
+			finalregistro.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
+				}
+				
+			});
+			
+			}
+
+		
+		cancelar.addActionListener(new ActionListener() {//MENSAJE CAMPA: LE PUSE FUNCIONALIDAD AL BOTÓN CANCELAR
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				CrearUsuarioDocente(username, apellidos, FechaN, Correo, Num, password, gradoEstudio);
+				remove(actual);
+				Perfil();
+				repaint();
+				revalidate();
 			}
-
+			
 		});
 		
-		registro.add(finalregistro);
-		
-		JButton cancelar = new JButton();
-		cancelar.setText("Cancelar");
-		cancelar.setSize(90, 20);
-		cancelar.setLocation(300, 510);
-		cancelar.setOpaque(true);
-		cancelar.setBackground(Color.white);
-		registro.add(cancelar);
-		
-	
+		//--------------------------------------------------------------------
 		anterior=actual;
 		actual=registro;
 		remove(anterior);
