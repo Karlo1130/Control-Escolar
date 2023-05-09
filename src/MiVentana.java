@@ -508,7 +508,7 @@ public class MiVentana extends JFrame {
 }	
 
 
-	public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar Ricardo
+public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar Ricardo
 		
 		registro = new JPanel();
 		registro.setSize(400,600);
@@ -672,43 +672,6 @@ public class MiVentana extends JFrame {
 		finalregistro.setLocation(150, 550);
 		finalregistro.setOpaque(true);
 		finalregistro.setBackground(Color.white);
-
-		finalregistro.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				CrearUsuario(username, apellidos, FechaN, Correo, Num, password);
-			}
-
-		});
-
-		
-		//ETIQUETA
-		JLabel gradoDocente = new JLabel("Ingrese su grado de estudio",JLabel.CENTER);
-		gradoDocente.setFont(new Font("Comic Sans", Font.BOLD,16));
-		gradoDocente.setForeground(Color.decode("#ffffff"));
-		gradoDocente.setSize(250, 20);
-		gradoDocente.setLocation(75, 405);
-		gradoDocente.setOpaque(true);
-		gradoDocente.setBackground(Color.decode("#1f7690"));
-		registro.add(gradoDocente);
-		
-		//GRADO DE ESTUDIO
-		JTextField gradoEstudio = new JTextField();
-		gradoEstudio.setSize(250, 30);
-		gradoEstudio.setLocation(75, 425);
-		registro.add(gradoEstudio);
-		finalregistro.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				//CrearUsuarioDocente(username, apellidos, FechaN, Correo, Num, password, gradoEstudio);
-			}
-
-		});
-		
 		registro.add(finalregistro);
 
 		JButton cancelar = new JButton();
@@ -735,6 +698,20 @@ public class MiVentana extends JFrame {
 		//BOTON ACEPTAR
 		finalregistro.setSize(100, 40);
 		finalregistro.setLocation(150, 550);
+		//ETIQUETA
+		JLabel gradoDocente = new JLabel("Ingrese su grado de estudio",JLabel.CENTER);
+		gradoDocente.setFont(new Font("Comic Sans", Font.BOLD,16));
+		gradoDocente.setForeground(Color.decode("#ffffff"));
+		gradoDocente.setSize(250, 20);
+		gradoDocente.setLocation(75, 405);
+		gradoDocente.setOpaque(true);
+		gradoDocente.setBackground(Color.decode("#1f7690"));
+		registro.add(gradoDocente);
+		//GRADO DE ESTUDIO
+		JTextField gradoEstudio = new JTextField();
+		gradoEstudio.setSize(250, 30);
+		gradoEstudio.setLocation(75, 425);
+		registro.add(gradoEstudio);
 			
 			finalregistro.addActionListener(new ActionListener() {
 
