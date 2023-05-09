@@ -1329,7 +1329,8 @@ public void menuCrearUsuario() {//panel menuCrearUsuario realizado por Garayzar 
 						+data[2]+","
 						+correo.getText()+","
 						+data[4]+","
-						+password;
+						+password
+						+data[6];
 
 				BufferedReader reader = new BufferedReader(new FileReader("users.txt"));
 				String line = reader.readLine();
